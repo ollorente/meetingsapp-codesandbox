@@ -13,7 +13,7 @@
     </header>
 
     <main class="container mx-auto p-3">
-      <h1>Perfil</h1>
+      <h1>Editar perfil</h1>
     </main>
   </div>
 </template>
@@ -22,14 +22,14 @@
 import InternalBar from "~/components/AtomicDesign/Molecules/InternalBar";
 
 export default {
-  name: "Profile",
+  name: "EditProfile",
   head: {
-    title: "Perfil © MeetingsApp",
+    title: "Editar perfil © MeetingsApp",
     meta: [
       {
         hid: "description",
         name: "description",
-        content: "Perfil",
+        content: "Editar perfil",
       },
     ],
   },
@@ -41,8 +41,8 @@ export default {
     return {
       profile: "",
       menu: {
-        link: `/actividades`,
-        title: "Perfil",
+        link: `/perfil`,
+        title: "Editar perfil",
       },
     };
   },

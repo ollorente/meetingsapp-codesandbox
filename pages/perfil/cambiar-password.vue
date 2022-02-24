@@ -13,7 +13,7 @@
     </header>
 
     <main class="container mx-auto p-3">
-      <h1>Perfil</h1>
+      <h1>Cambiar password - Perfil</h1>
     </main>
   </div>
 </template>
@@ -24,12 +24,12 @@ import InternalBar from "~/components/AtomicDesign/Molecules/InternalBar";
 export default {
   name: "Profile",
   head: {
-    title: "Perfil © MeetingsApp",
+    title: "Cambiar password - Perfil © MeetingsApp",
     meta: [
       {
         hid: "description",
         name: "description",
-        content: "Perfil",
+        content: "Cambiar password - Perfil",
       },
     ],
   },
@@ -41,8 +41,8 @@ export default {
     return {
       profile: "",
       menu: {
-        link: `/actividades`,
-        title: "Perfil",
+        link: `/perfil`,
+        title: "Cambiar password - Perfil",
       },
     };
   },
