@@ -1,12 +1,11 @@
 <template>
   <div class="font-sans">
-    <header class="container mx-auto bg-blue-800 text-white">
+    <header class="container mx-auto bg-blue-800 text-white sticky top-0">
       <InternalBar
         :menu="menu"
         v-if="
           !isMenu &&
           $route.path !== '/' &&
-          $route.path !== '/login' &&
           $route.path !== '/registro'
         "
       />

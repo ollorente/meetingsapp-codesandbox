@@ -5,7 +5,7 @@
         <i class="fas fa-arrow-left"></i> {{ menu.title }}
       </NuxtLink>
     </div>
-    <div class="text-xl font-light">
+    <div class="text-l font-light">
       <div v-if="$route.path !== '/' && $route.path !== '/registro'">
         <div
           class="w-screen h-screen bg-transparent text-black fixed inset-0 z-50"
@@ -24,17 +24,13 @@
                 <span class="py-1 px-2"><i class="fas fa-ellipsis-v"></i></span>
               </button>
             </div>
-            <div class="hover:bg-gray-100 py-2 px-3">
-              <NuxtLink to="/perfil/editar" class="w-full"
-                >Editar perfil</NuxtLink
-              >
-            </div>
-            <div class="hover:bg-gray-100 py-2 px-3">
-              <NuxtLink to="/perfil/cambiar-password" class="w-full"
-                >Cambiar password</NuxtLink
-              >
-            </div>
-            <div class="border-t">
+            <NuxtLink to="/perfil/editar" class="w-full">
+              <div class="hover:bg-gray-100 py-1 px-3">Editar perfil</div>
+            </NuxtLink>
+            <NuxtLink to="/perfil/cambiar-password" class="w-full">
+              <div class="hover:bg-gray-100 py-1 px-3">Cambiar password</div>
+            </NuxtLink>
+            <div class="border-t mt-2">
               <button
                 @click="logOut"
                 class="w-full text-left font-light hover:bg-gray-100 py-2 px-3"

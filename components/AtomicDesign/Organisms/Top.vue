@@ -1,5 +1,5 @@
 <template>
-  <header class="container mx-auto bg-blue-800 text-white">
+  <header class="container mx-auto bg-blue-800 text-white sticky top-0">
     <MainBar
       v-if="
         isMenu ||
@@ -8,7 +8,7 @@
         $route.path === '/registro'
       "
     />
-    <Menu v-if="isMenu" />
+    <Menu v-if="isMenu" class="" />
   </header>
 </template>
 

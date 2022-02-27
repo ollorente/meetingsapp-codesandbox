@@ -17,7 +17,7 @@
         ><i class="fas fa-users"></i> Contactos</span
       >
     </div>
-    <div class="text-xl font-light">
+    <div class="text-l font-light">
       <div v-if="$route.path === '/' || $route.path === '/registro'">
         <NuxtLink
           to="/"
@@ -56,10 +56,10 @@
                 <span class="py-1 px-2"><i class="fas fa-ellipsis-v"></i></span>
               </button>
             </div>
-            <div class="hover:bg-gray-100 py-2 px-3">
-              <NuxtLink to="/perfil" class="w-full">Perfil</NuxtLink>
-            </div>
-            <div class="border-t">
+            <NuxtLink to="/perfil" class="w-full">
+              <div class="hover:bg-gray-100 py-1 px-3">Perfil</div>
+            </NuxtLink>
+            <div class="border-t mt-2">
               <button
                 @click="logOut"
                 class="w-full text-left font-light hover:bg-gray-100 py-2 px-3"
