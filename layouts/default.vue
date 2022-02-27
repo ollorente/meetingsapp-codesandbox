@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans">
+  <div class="font-sans font-light text-gray-900">
     <Top />
 
     <main class="container mx-auto p-3">

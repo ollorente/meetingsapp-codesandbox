@@ -1,5 +1,7 @@
 <template>
-  <nuxt />
+  <div class="font-sans font-light text-gray-900">
+    <nuxt />
+  </div>
 </template>
 
 <script>

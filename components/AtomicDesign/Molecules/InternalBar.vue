@@ -24,6 +24,9 @@
                 <span class="py-1 px-2"><i class="fas fa-ellipsis-v"></i></span>
               </button>
             </div>
+            <NuxtLink to="/perfil" class="w-full">
+              <div class="hover:bg-gray-100 py-1 px-3">Perfil</div>
+            </NuxtLink>
             <NuxtLink to="/perfil/editar" class="w-full">
               <div class="hover:bg-gray-100 py-1 px-3">Editar perfil</div>
             </NuxtLink>

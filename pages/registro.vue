@@ -146,7 +146,6 @@ export default {
   methods: {
     async logup() {
       try {
-        console.log(this.user);
         if (
           this.user.email === null ||
           this.user.password === null ||

@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans font-light">
+  <div class="font-sans font-light text-gray-900">
     <main class="w-screen h-screen bg-blue-800 px-3 flex">
       <nuxt />
     </main>
