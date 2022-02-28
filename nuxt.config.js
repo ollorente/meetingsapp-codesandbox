@@ -49,7 +49,17 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  buildModules: ["@nuxtjs/dotenv"],
+  buildModules: [
+    "@nuxtjs/dotenv",
+    // https://momentjs.com
+    "@nuxtjs/moment"
+  ],
+
+  moment: {
+    defaultLocale: "es",
+    locales: ["es"],
+    defaultTimezone: "America/Bogota"
+  },
 
   /*
    ** Nuxt.js modules

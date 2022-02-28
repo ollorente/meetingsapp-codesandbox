@@ -1,51 +1,58 @@
 import http from "./http-common";
+const API_VERSION = "/api/v1";
 
 class MeetingDataService {
-  create(data) {
-    return http.post(`/meetings`, data);
+  async create(data) {
+    return http.post(`${API_VERSION}/meetings`, data);
   }
 
-  get(meeting) {
-    return http.get(`/meetings/${meeting}`);
+  async get(meeting) {
+    return http.get(`${API_VERSION}/meetings/${meeting}`);
   }
 
-  list(l, p) {
+  async list(l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/meetings?limit=${limit}&page=${page}`);
+    return http.get(`${API_VERSION}/meetings?limit=${limit}&page=${page}`);
   }
 
-  remove(meeting) {
-    return http.delete(`/meetings/${meeting}`);
+  async remove(meeting) {
+    return http.delete(`${API_VERSION}/meetings/${meeting}`);
   }
 
-  update(meeting, data) {
-    return http.put(`/meetings/${meeting}`, data);
+  async update(meeting, data) {
+    return http.put(`${API_VERSION}/meetings/${meeting}`, data);
   }
 
-  people(meeting, l, p) {
+  async people(meeting, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/meetings/${meeting}/people?limit=${limit}&page=${page}`);
+    return http.get(
+      `${API_VERSION}/meetings/${meeting}/people?limit=${limit}&page=${page}`
+    );
   }
 
-  tasks(meeting, l, p) {
+  async tasks(meeting, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/meetings/${meeting}/tasks?limit=${limit}&page=${page}`);
+    return http.get(
+      `${API_VERSION}/meetings/${meeting}/tasks?limit=${limit}&page=${page}`
+    );
   }
 
-  meetingsByText(text, l, p) {
+  async meetingsByText(text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/meetings?text=${text}&limit=${limit}&page=${page}`);
+    return http.get(
+      `${API_VERSION}/meetings?text=${text}&limit=${limit}&page=${page}`
+    );
   }
 
-  peopleByText(meeting, text, l, p) {
+  async peopleByText(meeting, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -54,7 +61,7 @@ class MeetingDataService {
     );
   }
 
-  tasksByText(meeting, text, l, p) {
+  async tasksByText(meeting, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 

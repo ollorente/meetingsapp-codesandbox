@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-full flex flex-row align-center mb-5">
+    <div class="w-full flex flex-row align-center mb-3">
       <form
         @submit.prevent="searchQuery"
         class="w-full flex border-2 border-blue-400 rounded-xl"
@@ -19,7 +19,7 @@
       <NuxtLink to="/contactos/nuevo" class="p-2"
         ><span
           class="bg-blue-600 text-white text-xl opacity-100 hover:opacity-75 rounded-xl py-3 px-4 my-auto ml-1"
-          ><i class="fas fa-user-plus"></i></span
+          ><i class="fas fa-users"></i></span
       ></NuxtLink>
     </div>
 

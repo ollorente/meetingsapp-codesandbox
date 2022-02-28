@@ -1,37 +1,40 @@
 import http from "./http-common";
+const API_VERSION = "/api/v1";
 
 class TaskDataService {
-  create(data) {
-    return http.post(`/tasks`, data);
+  async create(data) {
+    return http.post(`${API_VERSION}/tasks`, data);
   }
 
   get(task) {
-    return http.get(`/tasks/${task}`);
+    return http.get(`${API_VERSION}/tasks/${task}`);
   }
 
-  list(l, p) {
+  async list(l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/tasks?limit=${limit}&page=${page}`);
+    return http.get(`${API_VERSION}/tasks?limit=${limit}&page=${page}`);
   }
 
-  remove(task) {
-    return http.delete(`/tasks/${task}`);
+  async remove(task) {
+    return http.delete(`${API_VERSION}/tasks/${task}`);
   }
 
-  update(task, data) {
-    return http.put(`/tasks/${task}`, data);
+  async update(task, data) {
+    return http.put(`${API_VERSION}/tasks/${task}`, data);
   }
 
-  people(task, l, p) {
+  async people(task, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/tasks/${task}/people?limit=${limit}&page=${page}`);
+    return http.get(
+      `${API_VERSION}/tasks/${task}/people?limit=${limit}&page=${page}`
+    );
   }
 
-  peopleByText(task, text, l, p) {
+  async peopleByText(task, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -40,11 +43,13 @@ class TaskDataService {
     );
   }
 
-  tasksByText(text, l, p) {
+  async tasksByText(text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/tasks?text=${text}&limit=${limit}&page=${page}`);
+    return http.get(
+      `${API_VERSION}/tasks?text=${text}&limit=${limit}&page=${page}`
+    );
   }
 }
 

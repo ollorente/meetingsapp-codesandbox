@@ -1,6 +1,6 @@
 <template>
-<div>
-  <div class="w-full flex flex-row align-center mb-5">
+  <div>
+    <div class="w-full flex flex-row align-center mb-3">
       <form
         @submit.prevent="searchQuery"
         class="w-full flex border-2 border-blue-400 rounded-xl"
@@ -19,17 +19,21 @@
       <NuxtLink to="/proyectos/nuevo" class="p-2"
         ><span
           class="bg-blue-600 text-white text-xl opacity-100 hover:opacity-75 rounded-xl py-3 px-4 my-auto ml-1"
-          ><i class="fas fa-user-plus"></i></span
+          ><i class="fas fa-user-tie"></i></span
       ></NuxtLink>
     </div>
 
-    
-  <h1>Proyectos</h1>
-</div>
+    <ItemProject
+      v-for="(project, index) in projects"
+      :key="index"
+      :project="project"
+    />
+  </div>
 </template>
 
 <script>
-import ItemUser from "~/components/AtomicDesign/Molecules/ItemUser";
+import ItemProject from "~/components/AtomicDesign/Molecules/ItemProject";
+import ProjectDataService from "~/services/ProjectDataService";
 
 export default {
   name: "Projects",
@@ -44,7 +48,7 @@ export default {
     ],
   },
   components: {
-    ItemUser,
+    ItemProject,
   },
   data() {
     return {
@@ -55,10 +59,36 @@ export default {
       search: null,
     };
   },
-  created() {},
-  methods: {},
+  created() {
+    this.getProjects();
+  },
+  methods: {
+    async getProjects() {
+      try {
+        this.page++;
+
+        const { count, data, error } = await ProjectDataService.list(
+          this.limit,
+          this.page
+        )
+          .then(async (response) => {
+            return await response.data;
+          })
+          .catch((error) => console.log(error));
+
+        if (error) {
+          console.log(error);
+        }
+
+        this.projects = data;
+        this.count = count;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
   watch: {
-    $route: [],
+    $route: ["getProjects"],
   },
 };
 </script>

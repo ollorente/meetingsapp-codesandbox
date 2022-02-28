@@ -1,35 +1,36 @@
 <template>
   <div>
-    <h1>Actividades</h1>
-    <NuxtLink
-      v-for="task in tasks"
-      :key="task.id"
-      :to="`/actividades/{$route.params.task}`"
-      class="main__section__task"
-      :class="task.isLock ? 'lock' : ''"
-    >
-      <span class="main__section__task__text">
-        <i class="fas fa-clipboard-check"></i>
-        <div class="main__section__task__body">
-          <span class="main__section__task__title">{{ task.name }}</span>
-          <span class="main__section__task__content">{{ task.name }}</span>
-        </div>
-      </span>
-      <span class="main__section__task__icon">
-        <i
-          :class="task.isActive ? 'fas' : 'far text-gray'"
-          class="fa-circle"
-        ></i>
-        <i
-          class="fas"
-          :class="task.isLock ? 'fa-lock text-gray' : 'fa-lock-open'"
-        ></i>
-      </span>
-    </NuxtLink>
+    <div class="w-full flex flex-row align-center mb-3">
+      <form
+        @submit.prevent="searchQuery"
+        class="w-full flex border-2 border-blue-400 rounded-xl"
+      >
+        <input
+          type="search"
+          name="search"
+          id="search"
+          v-model="search"
+          placeholder="Buscar actividad..."
+          class="w-full bg-transparent border-0 rounded-l-xl p-3"
+        />
+        <button type="submit" class="p-3"><i class="fas fa-search"></i></button>
+      </form>
+
+      <NuxtLink to="/actividades/nueva" class="p-2"
+        ><span
+          class="bg-blue-600 text-white text-xl opacity-100 hover:opacity-75 rounded-xl py-3 px-4 my-auto ml-1"
+          ><i class="fas fa-tasks"></i></span
+      ></NuxtLink>
+    </div>
+
+    <ItemTask v-for="(task, index) in tasks" :key="index" :task="task" />
   </div>
 </template>
 
 <script>
+import ItemTask from "~/components/AtomicDesign/Molecules/ItemTask";
+import TaskDataService from "~/services/TaskDataService";
+
 export default {
   name: "Tasks",
   head: {
@@ -42,23 +43,48 @@ export default {
       },
     ],
   },
-  components: {},
+  components: {
+    ItemTask,
+  },
   data() {
     return {
-      tasks: [
-        {
-          id: "",
-          name: "",
-          isActive: "",
-          isLock: "",
-        },
-      ],
+      tasks: [],
+      count: 0,
+      limit: 10,
+      page: 0,
+      search: null,
     };
   },
-  created() {},
-  methods: {},
+  created() {
+    this.getTasks();
+  },
+  methods: {
+    async getTasks() {
+      try {
+        this.page++;
+
+        const { count, data, error } = await TaskDataService.list(
+          this.limit,
+          this.page
+        )
+          .then(async (response) => {
+            return await response.data;
+          })
+          .catch((error) => console.log(error));
+
+        if (error) {
+          console.log(error);
+        }
+
+        this.tasks = data;
+        this.count = count;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
   watch: {
-    $route: [],
+    $route: ["getTasks"],
   },
 };
 </script>

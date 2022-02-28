@@ -42,11 +42,15 @@
         </p>
         <p class="py-3">
           <span class="font-semibold">Creado:</span><br />
-          <span class="text-l">{{ person.createdAt }}</span>
+          <span class="text-l">{{
+            $moment(person.createdAt).format("LL")
+          }}</span>
         </p>
         <p class="py-3" v-if="person.createdAt !== person.updatedAt">
           <span class="font-semibold">Actualizado:</span><br />
-          <span class="text-l">{{ person.updatedAt }}</span>
+          <span class="text-l">{{
+            $moment(person.updatedAt).format("LL")
+          }}</span>
         </p>
         <p class="py-3">
           <NuxtLink
