@@ -2,30 +2,30 @@ import http from "./http-common";
 const API_VERSION = "/api/v1";
 
 class PersonDataService {
-  create(data) {
+  async create(data) {
     return http.post(`${API_VERSION}/people`, data);
   }
 
-  get(person) {
+  async get(person) {
     return http.get(`${API_VERSION}/people/${person}`);
   }
 
-  list(l, p) {
+  async list(l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
     return http.get(`${API_VERSION}/people?limit=${limit}&page=${page}`);
   }
 
-  remove(person) {
+  async remove(person) {
     return http.delete(`${API_VERSION}/people/${person}`);
   }
 
-  update(person, data) {
+  async update(person, data) {
     return http.put(`${API_VERSION}/people/${person}`, data);
   }
 
-  meetings(person, l, p) {
+  async meetings(person, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -34,7 +34,7 @@ class PersonDataService {
     );
   }
 
-  projects(person, l, p) {
+  async projects(person, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -43,7 +43,7 @@ class PersonDataService {
     );
   }
 
-  tasks(person, l, p) {
+  async tasks(person, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -52,7 +52,7 @@ class PersonDataService {
     );
   }
 
-  meetingsByText(person, text, l, p) {
+  async meetingsByText(person, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -61,7 +61,7 @@ class PersonDataService {
     );
   }
 
-  peopleByText(text, l, p) {
+  async peopleByText(text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -70,7 +70,7 @@ class PersonDataService {
     );
   }
 
-  projectsByText(person, text, l, p) {
+  async projectsByText(person, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -79,7 +79,7 @@ class PersonDataService {
     );
   }
 
-  tasksByText(person, text, l, p) {
+  async tasksByText(person, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 

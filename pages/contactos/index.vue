@@ -11,7 +11,7 @@
           id="search"
           v-model="search"
           placeholder="Buscar contacto..."
-          class="w-full bg-transparent rounded-l-xl p-3"
+          class="w-full bg-transparent border-0 rounded-l-xl p-3"
         />
         <button type="submit" class="p-3"><i class="fas fa-search"></i></button>
       </form>

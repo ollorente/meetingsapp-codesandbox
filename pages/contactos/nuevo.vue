@@ -8,7 +8,56 @@
     </header>
 
     <main class="container mx-auto p-3">
-      <h1>Nuevo contacto</h1>
+      <form @submit.prevent="addPerson" class="w-full">
+        <div class="flex flex-col mb-3">
+          <label for="name" class="w-max bg-white p-2 ml-3 -mb-3 z-10 rounded"
+            >Nombre completo</label
+          >
+          <input
+            type="text"
+            id="name"
+            v-model="person.name"
+            placeholder="Nombre completo *"
+            class="bg-transparent border border-blue-800 rounded p-2"
+            autofocus
+          />
+        </div>
+
+        <div class="flex flex-col mb-3">
+          <label for="email" class="w-max bg-white p-2 ml-3 -mb-3 z-10 rounded"
+            >Correo electrónico *</label
+          >
+          <input
+            type="email"
+            id="email"
+            v-model="person.email"
+            placeholder="Correo electrónico *"
+            class="bg-transparent border border-blue-800 rounded p-2"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col mb-3">
+          <label for="role" class="w-max bg-white p-2 ml-3 -mb-3 z-10 rounded"
+            >Role</label
+          >
+          <input
+            type="text"
+            id="role"
+            v-model="person.role"
+            placeholder="Role"
+            class="bg-transparent border border-blue-800 rounded p-2"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-blue-800 text-white text-center rounded py-2 px-3"
+        >
+          Crear
+        </button>
+      </form>
     </main>
   </div>
 </template>
@@ -49,7 +98,7 @@ export default {
   methods: {
     async addPerson() {
       try {
-        if (this.user.email === null || this.user.name === null) {
+        if (this.person.email === null || this.person.name === null) {
           return;
         }
 

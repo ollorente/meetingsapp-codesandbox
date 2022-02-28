@@ -1,30 +1,31 @@
 import http from "./http-common";
+const API_VERSION = "/api/v1";
 
 class ProjectDataService {
-  create(data) {
-    return http.post(`/projects`, data);
+  async create(data) {
+    return http.post(`${API_VERSION}/projects`, data);
   }
 
-  get(project) {
-    return http.get(`/projects/${project}`);
+  async get(project) {
+    return http.get(`${API_VERSION}/projects/${project}`);
   }
 
-  list(l, p) {
+  async list(l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/projects?limit=${limit}&page=${page}`);
+    return http.get(`${API_VERSION}/projects?limit=${limit}&page=${page}`);
   }
 
-  remove(project) {
-    return http.delete(`/projects/${project}`);
+  async remove(project) {
+    return http.delete(`${API_VERSION}/projects/${project}`);
   }
 
-  update(project, data) {
-    return http.put(`/projects/${project}`, data);
+  async update(project, data) {
+    return http.put(`${API_VERSION}/projects/${project}`, data);
   }
 
-  meetings(project, l, p) {
+  async meetings(project, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -33,21 +34,25 @@ class ProjectDataService {
     );
   }
 
-  people(project, l, p) {
+  async people(project, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/projects/${project}/people?limit=${limit}&page=${page}`);
+    return http.get(
+      `${API_VERSION}/projects/${project}/people?limit=${limit}&page=${page}`
+    );
   }
 
-  tasks(project, l, p) {
+  async tasks(project, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/projects/${project}/tasks?limit=${limit}&page=${page}`);
+    return http.get(
+      `${API_VERSION}/projects/${project}/tasks?limit=${limit}&page=${page}`
+    );
   }
 
-  meetingsByText(project, text, l, p) {
+  async meetingsByText(project, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -56,7 +61,7 @@ class ProjectDataService {
     );
   }
 
-  peopleByText(project, text, l, p) {
+  async peopleByText(project, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
@@ -65,14 +70,16 @@ class ProjectDataService {
     );
   }
 
-  projectsByText(text, l, p) {
+  async projectsByText(text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 
-    return http.get(`/projects?text=${text}&limit=${limit}&page=${page}`);
+    return http.get(
+      `${API_VERSION}/projects?text=${text}&limit=${limit}&page=${page}`
+    );
   }
 
-  tasksByText(project, text, l, p) {
+  async tasksByText(project, text, l, p) {
     const limit = l ?? 10;
     const page = p ?? 1;
 

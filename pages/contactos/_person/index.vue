@@ -20,7 +20,7 @@
             :src="
               person.photoURL
                 ? person.photoURL
-                : 'https://lh3.googleusercontent.com/-6kVDwNiAbNg/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucleWBpJpWEjQVKFxjyr1Bg0XDPn1g/s128-c/photo.jpg'
+                : 'https://res.cloudinary.com/dbszizqh4/image/upload/v1592198427/images_lvwix2.png'
             "
             class="w-48 h-48 object-cover position-center border rounded-full mx-auto"
             :alt="person.name"
@@ -107,13 +107,13 @@
         </p>
         <div class="flex flex-row align-center py-3">
           <button
-            class="w-1/2 bg-white hover:bg-gray-100 text-gray-300 hover:text-gray-600 border-2 border-gray-300 rounded p-3 mx-1"
+            class="w-1/2 bg-white hover:bg-gray-100 text-gray-400 hover:text-gray-600 border-2 border-gray-400 rounded p-3 mx-1"
             @click="remove"
           >
             <i class="fas fa-trash"></i>
           </button>
           <button
-            class="w-1/2 bg-yellow-300 hover:bg-yellow-600 text-gray-900 hover:text-white border-2 border-yellow-300 hover:border-yellow-600 rounded p-3 mx-1"
+            class="w-1/2 bg-yellow-400 hover:bg-yellow-600 text-gray-900 hover:text-white border-2 border-yellow-300 hover:border-yellow-600 rounded p-3 mx-1"
             @click="goToUpdate"
           >
             <i class="fas fa-edit"></i>
